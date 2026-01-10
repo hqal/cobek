@@ -62,28 +62,42 @@
         /* Hero */
         .hero {
             background: linear-gradient(to bottom, #fdf8f3, white);
-            padding: 40px 0;
+            padding: 40px 0 32px;
             text-align: center;
         }
 
-        .hero-img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            margin: 0 auto 24px;
-            display: block;
+        .hero-hook {
+            font-size: 14px;
+            color: #a65d24;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
             font-size: 28px;
             font-weight: 700;
-            color: #2a241f;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #8b4a1c 0%, #c97b3a 50%, #a65d24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero h1 span {
-            color: #a65d24;
+        .hero-subtitle {
+            font-size: 15px;
+            color: #6b5b4f;
+            margin-bottom: 20px;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 24px;
+            display: block;
         }
 
         .hero p {
@@ -574,18 +588,14 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">COBEK GARUT</div>
-        <a href="#order" class="btn-nav">PESAN SEKARANG</a>
-    </nav>
-
     <!-- Hero -->
     <section class="hero">
         <div class="container">
+            <p class="hero-hook">🔥 Produk Viral dari Garut</p>
+            <h1>Cobek Alumunium Asli Garut</h1>
+            <p class="hero-subtitle">Bisa Langsung Dipanaskan di Kompor!</p>
             <img src="https://cobek.vercel.app/images/hero.webp" alt="Cobek Alumunium" class="hero-img">
-            <h1>Cobek Alumunium <span>Asli Garut</span></h1>
-            <p>Cobek kuping premium yang <b>bisa dipakai di kompor langsung</b>. Praktis, awet, dan multifungsi!</p>
+            <p>Cobek kuping premium yang <b>ringan, awet, dan multifungsi</b>. Gratis ulekan kayu!</p>
             <a href="#order" class="btn-cta">🔥 PESAN SEKARANG</a>
             <div class="badges">
                 <span class="badge"><i class="fa-solid fa-gift"></i> Gratis Ulekan</span>
@@ -777,17 +787,6 @@
         <p>COBEK GARUT - ASLI KERAJINAN GARUT</p>
         <p>© 2025 All Rights Reserved</p>
     </footer>
-
-    <!-- Sticky Bar -->
-    <div class="sticky-bar">
-        <div class="inner">
-            <div class="price-info">
-                <p>Mulai dari</p>
-                <p id="sticky-price">Rp 95.000</p>
-            </div>
-            <a href="#order" class="btn-sticky">BELI SEKARANG</a>
-        </div>
-    </div>
 
     <script>
         // Timer
