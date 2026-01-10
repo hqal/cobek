@@ -684,7 +684,7 @@
                 <h2>Pilih Ukuran Cobek</h2>
                 <p class="subtitle">Semua sudah termasuk ulekan GRATIS!</p>
 
-                <div class="product-option" onclick="selectProduct(this, 75000, 'Cobek 20cm + Ulekan')">
+                <div class="product-option" data-price="75000" data-name="Cobek 20cm + Ulekan">
                     <img src="https://cobek.vercel.app/images/product-20cm.webp" alt="20cm">
                     <div class="info">
                         <h3>COBEK 20cm + Ulekan</h3>
@@ -694,7 +694,7 @@
                     <i class="fa-solid fa-circle-check check-icon"></i>
                 </div>
 
-                <div class="product-option selected" onclick="selectProduct(this, 95000, 'Cobek 25cm + Ulekan')">
+                <div class="product-option selected" data-price="95000" data-name="Cobek 25cm + Ulekan">
                     <span class="best-seller">BEST SELLER</span>
                     <img src="https://cobek.vercel.app/images/product-25cm.webp" alt="25cm">
                     <div class="info">
@@ -705,7 +705,7 @@
                     <i class="fa-solid fa-circle-check check-icon"></i>
                 </div>
 
-                <div class="product-option" onclick="selectProduct(this, 125000, 'Cobek 30cm + Ulekan')">
+                <div class="product-option" data-price="125000" data-name="Cobek 30cm + Ulekan">
                     <img src="https://cobek.vercel.app/images/product-30cm.webp" alt="30cm">
                     <div class="info">
                         <h3>COBEK 30cm + Ulekan</h3>
@@ -843,14 +843,21 @@
             }, 1000);
         })();
 
-        // Product Selection
-        function selectProduct(el, price, name) {
-            document.querySelectorAll('.product-option').forEach(function (opt) { opt.classList.remove('selected'); });
-            el.classList.add('selected');
-            document.getElementById('sum-name').innerHTML = '<b>' + name + '</b>';
-            document.getElementById('sum-price').textContent = 'Rp ' + price.toLocaleString('id-ID');
-            document.getElementById('sticky-price').textContent = 'Rp ' + price.toLocaleString('id-ID');
-        }
+        // Product Selection - using event listeners
+        document.querySelectorAll('.product-option').forEach(function (opt) {
+            opt.addEventListener('click', function () {
+                var price = parseInt(this.getAttribute('data-price'));
+                var name = this.getAttribute('data-name');
+
+                document.querySelectorAll('.product-option').forEach(function (o) {
+                    o.classList.remove('selected');
+                });
+                this.classList.add('selected');
+
+                document.getElementById('sum-name').innerHTML = '<b>' + name + '</b>';
+                document.getElementById('sum-price').textContent = 'Rp ' + price.toLocaleString('id-ID');
+            });
+        });
 
         // Form Submit to WhatsApp
         // GANTI nomor WA di bawah ini dengan nomor kamu
