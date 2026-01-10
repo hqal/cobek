@@ -718,15 +718,78 @@
         </div>
     </section>
 
+    <!-- Form -->
+    <section class="form-section" id="order">
+        <div class="container">
+            <div class="form-box">
+                <h3><i class="fa-solid fa-truck-fast"></i> Data Pengiriman</h3>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label>Nama Lengkap *</label>
+                        <input type="text" id="inp-name" placeholder="Ahmad Suryadi" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No. WhatsApp *</label>
+                        <div class="phone-input">
+                            <span>+62</span>
+                            <input type="tel" id="inp-phone" placeholder="812xxxxxxxx" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Provinsi *</label>
+                            <select id="inp-province" required>
+                                <option value="">Pilih</option>
+                                <option>Jawa Barat</option>
+                                <option>DKI Jakarta</option>
+                                <option>Jawa Tengah</option>
+                                <option>Jawa Timur</option>
+                                <option>Banten</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Kota *</label>
+                            <input type="text" id="inp-city" placeholder="Garut" required>
+                        </div>
+                    </div>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label>Kecamatan *</label>
+                            <input type="text" id="inp-district" placeholder="Tarogong Kaler" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Kode Pos *</label>
+                            <input type="text" id="inp-postal" placeholder="44151" maxlength="5" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Lengkap *</label>
+                        <textarea id="inp-address" rows="2" placeholder="Jl. Pembangunan No. 10, RT 01/RW 02"
+                            required></textarea>
+                    </div>
 
-    <!-- 
-    =============================================
-    FORM ORDER EVERPRO
-    =============================================
-    Hapus section HTML ini dan tambahkan komponen 
-    "Form Order" dari Everpro builder di sini.
-    =============================================
-    -->
+                    <div class="summary">
+                        <div class="summary-row">
+                            <span>Produk:</span>
+                            <span id="sum-name"><b>Cobek 25cm + Ulekan</b></span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Ongkir:</span>
+                            <span class="green">Bayar di Tempat (COD)</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="sum-price">Rp 95.000</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">PESAN SEKARANG (COD) 🚚</button>
+                    <p class="form-note"><i class="fa-solid fa-lock"></i> Data Anda aman & terjaga</p>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -757,10 +820,37 @@
             document.getElementById('sticky-price').textContent = 'Rp ' + price.toLocaleString('id-ID');
         }
 
-        // Form Submit
+        // Form Submit to WhatsApp
+        // GANTI nomor WA di bawah ini dengan nomor kamu
+        var NOMOR_WA = '6281234567890';
+
         document.getElementById('orderForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Pesanan berhasil! Tim kami akan menghubungi via WhatsApp.');
+
+            var nama = document.getElementById('inp-name').value;
+            var phone = document.getElementById('inp-phone').value;
+            var provinsi = document.getElementById('inp-province').value;
+            var kota = document.getElementById('inp-city').value;
+            var kecamatan = document.getElementById('inp-district').value;
+            var kodePos = document.getElementById('inp-postal').value;
+            var alamat = document.getElementById('inp-address').value;
+            var produk = document.getElementById('sum-name').textContent;
+            var total = document.getElementById('sum-price').textContent;
+
+            var pesan = '*PESANAN BARU - COBEK GARUT*\n\n';
+            pesan += '📦 *Produk:* ' + produk + '\n';
+            pesan += '💰 *Total:* ' + total + '\n\n';
+            pesan += '👤 *Data Pemesan:*\n';
+            pesan += 'Nama: ' + nama + '\n';
+            pesan += 'No. HP: 0' + phone + '\n\n';
+            pesan += '📍 *Alamat Pengiriman:*\n';
+            pesan += alamat + '\n';
+            pesan += kecamatan + ', ' + kota + ' ' + kodePos + '\n';
+            pesan += provinsi + '\n\n';
+            pesan += '_Pesanan via Landing Page_';
+
+            var url = 'https://wa.me/' + NOMOR_WA + '?text=' + encodeURIComponent(pesan);
+            window.open(url, '_blank');
         });
     </script>
 </body>
