@@ -869,13 +869,15 @@
             var produk = document.getElementById('sum-name').textContent;
             var total = document.getElementById('sum-price').textContent;
 
-            var pesan = '*PESANAN BARU - COBEK GARUT*\n\n';
-            pesan += '\uD83D\uDCE6 *Produk:* ' + produk + '\n';
-            pesan += '\uD83D\uDCB0 *Total:* ' + total + '\n\n';
-            pesan += '\uD83D\uDC64 *Data Pemesan:*\n';
+            var pesan = '=========================\n';
+            pesan += '*PESANAN BARU - COBEK GARUT*\n';
+            pesan += '=========================\n\n';
+            pesan += '>> *Produk:* ' + produk + '\n';
+            pesan += '>> *Total:* ' + total + '\n\n';
+            pesan += '--- *Data Pemesan* ---\n';
             pesan += 'Nama: ' + nama + '\n';
-            pesan += 'No. HP: 0' + phone + '\n\n';
-            pesan += '\uD83D\uDCCD *Alamat Pengiriman:*\n';
+            pesan += 'No. HP: ' + phone + '\n\n';
+            pesan += '--- *Alamat Pengiriman* ---\n';
             pesan += alamat + '\n';
             pesan += kecamatan + ', ' + kota + ' ' + kodePos + '\n';
             pesan += provinsi + '\n\n';
