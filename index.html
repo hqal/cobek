@@ -77,8 +77,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .fade-in {
@@ -86,8 +91,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .product-card {
@@ -104,7 +116,7 @@
 
     <!-- NAVBAR -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm py-3 px-4 flex justify-between items-center">
-        <div class="font-serif text-xl font-bold text-brand-600">COBEK<span class="text-earth-300">&</span>GARUT</div>
+        <div class="font-serif text-xl font-bold text-brand-600">COBEK GARUT</div>
         <a href="#order"
             class="bg-brand-600 text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-brand-700 transition">
             PESAN SEKARANG
@@ -187,8 +199,8 @@
             <p class="text-earth-600 text-sm mb-6">Tradisional bertemu modern. Praktis untuk dapur masa kini.</p>
 
             <div class="bg-gradient-to-br from-brand-50 to-white rounded-2xl p-5 border border-brand-100">
-                <img src="images/product-25cm.webp" alt="Cobek Alumunium Premium" width="400" height="400" loading="lazy"
-                    class="w-full rounded-xl mb-4 shadow-md">
+                <img src="images/product-25cm.webp" alt="Cobek Alumunium Premium" width="400" height="400"
+                    loading="lazy" class="w-full rounded-xl mb-4 shadow-md">
 
                 <h3 class="font-serif text-lg font-bold text-brand-700 mb-3">Cobek Kuping Alumunium</h3>
 
@@ -259,7 +271,8 @@
                                     <p class="text-xs text-earth-400">Ukuran kecil, praktis</p>
                                     <p class="text-lg font-bold text-brand-600">Rp 75.000</p>
                                 </div>
-                                <i class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
+                                <i
+                                    class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
                             </div>
                         </div>
                     </label>
@@ -281,7 +294,8 @@
                                     <p class="text-xs text-earth-400">Ukuran sedang, pas untuk keluarga</p>
                                     <p class="text-lg font-bold text-brand-600">Rp 95.000</p>
                                 </div>
-                                <i class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
+                                <i
+                                    class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
                             </div>
                         </div>
                     </label>
@@ -300,7 +314,8 @@
                                     <p class="text-xs text-earth-400">Ukuran besar, untuk usaha</p>
                                     <p class="text-lg font-bold text-brand-600">Rp 125.000</p>
                                 </div>
-                                <i class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
+                                <i
+                                    class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
                             </div>
                         </div>
                     </label>
@@ -469,7 +484,7 @@
             document.getElementById('h-name').value = n;
             document.getElementById('h-price').value = p;
             document.getElementById('h-qty').value = q;
-            
+
             // Update radio visual feedback
             document.querySelectorAll('input[name="paket"]').forEach(radio => {
                 const icon = radio.closest('label').querySelector('.fa-circle-check');
