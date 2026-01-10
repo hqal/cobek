@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobek Alumunium Asli Garut - Gratis Ulekan!</title>
+    <meta name="description"
+        content="Cobek Kuping Alumunium asli Garut. Bisa dipakai di kompor langsung! Gratis ulekan. Tersedia ukuran 20cm, 25cm, 30cm. COD tersedia.">
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf8f3',
+                            100: '#f9ead9',
+                            200: '#f3d5b3',
+                            500: '#c97b3a',
+                            600: '#a65d24',
+                            700: '#8b4a1c',
+                        },
+                        earth: {
+                            50: '#f5f3f0',
+                            100: '#e8e4dc',
+                            200: '#d4cdc0',
+                            600: '#6b5b4f',
+                            800: '#3d3530',
+                            900: '#2a241f',
+                        },
+                        gold: '#d4a12a',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(201, 123, 58, 0.4);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(201, 123, 58, 0.6);
+        }
+
+        .loading-spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card {
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+
+<body class="bg-earth-50 font-sans text-earth-800 antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm py-3 px-4 flex justify-between items-center">
+        <div class="font-serif text-xl font-bold text-brand-600">COBEK<span class="text-earth-300">&</span>GARUT</div>
+        <a href="#order"
+            class="bg-brand-600 text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-brand-700 transition">
+            PESAN SEKARANG
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="bg-gradient-to-b from-brand-50 to-white py-10">
+        <div class="container mx-auto px-4 max-w-lg">
+            <!-- Hero Image -->
+            <div class="flex justify-center mb-6">
+                <img src="images/hero.webp" alt="Cobek Alumunium Asli Garut" width="384" height="384"
+                    fetchpriority="high" class="w-full max-w-sm rounded-2xl shadow-xl">
+            </div>
+
+            <div class="text-center">
+                <h1 class="font-serif text-3xl md:text-4xl font-bold text-earth-900 leading-tight mb-3">
+                    Cobek Alumunium <span class="text-brand-600">Asli Garut</span>
+                </h1>
+                <p class="text-earth-600 mb-6 text-sm">
+                    Cobek kuping premium yang <b>bisa dipakai di kompor langsung</b>. Praktis, awet, dan multifungsi!
+                </p>
+
+                <a href="#order"
+                    class="inline-block bg-brand-600 text-white text-lg font-bold py-3 px-8 rounded-full btn-glow hover:bg-brand-700 transition-all duration-300">
+                    🔥 PESAN SEKARANG
+                </a>
+
+                <div class="mt-6 flex justify-center gap-3 text-xs font-medium text-earth-600">
+                    <span class="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-solid fa-gift text-brand-500"></i> Gratis Ulekan
+                    </span>
+                    <span class="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-solid fa-fire text-brand-500"></i> Tahan Panas
+                    </span>
+                    <span class="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-solid fa-check-circle text-brand-500"></i> Original
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="py-10 bg-earth-100">
+        <div class="container mx-auto px-4 max-w-lg">
+            <h2 class="text-center font-bold text-lg mb-6 text-red-600">
+                😰 Masalah Dengan Cobek Biasa?
+            </h2>
+            <div class="space-y-3">
+                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-red-400">
+                    <i class="fa-solid fa-xmark text-red-500 mr-3 mt-0.5"></i>
+                    <div>
+                        <h3 class="font-bold text-sm text-earth-800">Berat & Ribet</h3>
+                        <p class="text-xs text-earth-600">Cobek batu terlalu berat, susah dipindahkan.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-red-400">
+                    <i class="fa-solid fa-xmark text-red-500 mr-3 mt-0.5"></i>
+                    <div>
+                        <h3 class="font-bold text-sm text-earth-800">Tidak Tahan Panas</h3>
+                        <p class="text-xs text-earth-600">Tidak bisa dipanaskan di kompor, harus pindah wadah.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border-l-4 border-red-400">
+                    <i class="fa-solid fa-xmark text-red-500 mr-3 mt-0.5"></i>
+                    <div>
+                        <h3 class="font-bold text-sm text-earth-800">Mudah Pecah</h3>
+                        <p class="text-xs text-earth-600">Cobek tanah liat rentan retak dan pecah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4 max-w-lg text-center">
+            <h2 class="font-serif text-2xl font-bold mb-2">✨ Solusinya: Cobek Alumunium!</h2>
+            <p class="text-earth-600 text-sm mb-6">Tradisional bertemu modern. Praktis untuk dapur masa kini.</p>
+
+            <div class="bg-gradient-to-br from-brand-50 to-white rounded-2xl p-5 border border-brand-100">
+                <img src="images/product-25cm.webp" alt="Cobek Alumunium Premium" width="400" height="400" loading="lazy"
+                    class="w-full rounded-xl mb-4 shadow-md">
+
+                <h3 class="font-serif text-lg font-bold text-brand-700 mb-3">Cobek Kuping Alumunium</h3>
+
+                <ul class="text-left space-y-2 text-sm text-earth-700 max-w-xs mx-auto">
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-brand-500"></i>
+                        <span><b>Bisa di Kompor</b> - Langsung panaskan!</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-brand-500"></i>
+                        <span><b>Ringan & Kuat</b> - Alumunium berkualitas</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-brand-500"></i>
+                        <span><b>Gratis Ulekan</b> - Siap pakai!</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-brand-500"></i>
+                        <span><b>Asli Garut</b> - Kerajinan tangan lokal</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="py-6 bg-brand-600 text-white">
+        <div class="container mx-auto px-4 max-w-lg">
+            <div class="flex justify-center gap-8 text-center">
+                <div>
+                    <i class="fa-solid fa-gift text-2xl mb-1"></i>
+                    <p class="text-[10px] font-bold">GRATIS ULEKAN</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-fire-flame-curved text-2xl mb-1"></i>
+                    <p class="text-[10px] font-bold">TAHAN PANAS</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-box text-2xl mb-1"></i>
+                    <p class="text-[10px] font-bold">PACKING AMAN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="py-10 bg-white" id="pricing">
+        <div class="container mx-auto px-4 max-w-md">
+            <div class="bg-red-600 text-white text-center py-2 px-4 rounded-t-xl font-bold text-sm">
+                🔥 PROMO TERBATAS: <span id="timer">02:15:00</span>
+            </div>
+            <div class="bg-white border-x border-b border-gray-200 p-5 rounded-b-xl shadow-lg">
+                <h2 class="text-center font-bold text-xl mb-1">Pilih Ukuran Cobek</h2>
+                <p class="text-center text-xs text-earth-500 mb-5">Semua sudah termasuk ulekan GRATIS!</p>
+
+                <div class="space-y-3">
+                    <!-- 20cm -->
+                    <label class="relative block cursor-pointer">
+                        <input type="radio" name="paket" value="20cm" class="peer sr-only"
+                            onchange="updateTotal(75000, 'Cobek 20cm + Ulekan', 1)">
+                        <div
+                            class="p-4 rounded-xl border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 transition-all product-card">
+                            <div class="flex items-center gap-3">
+                                <img src="images/product-20cm.webp" alt="Cobek 20cm" width="64" height="64"
+                                    loading="lazy" class="w-16 h-16 object-cover rounded-lg shadow">
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-sm">COBEK 20cm + Ulekan</h3>
+                                    <p class="text-xs text-earth-400">Ukuran kecil, praktis</p>
+                                    <p class="text-lg font-bold text-brand-600">Rp 75.000</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- 25cm - Best Seller -->
+                    <label class="relative block cursor-pointer">
+                        <input type="radio" name="paket" value="25cm" class="peer sr-only" checked
+                            onchange="updateTotal(95000, 'Cobek 25cm + Ulekan', 1)">
+                        <div
+                            class="p-4 rounded-xl border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 transition-all product-card">
+                            <div
+                                class="absolute -top-2 right-3 bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                                BEST SELLER</div>
+                            <div class="flex items-center gap-3">
+                                <img src="images/product-25cm.webp" alt="Cobek 25cm" width="64" height="64"
+                                    loading="lazy" class="w-16 h-16 object-cover rounded-lg shadow">
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-sm">COBEK 25cm + Ulekan</h3>
+                                    <p class="text-xs text-earth-400">Ukuran sedang, pas untuk keluarga</p>
+                                    <p class="text-lg font-bold text-brand-600">Rp 95.000</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- 30cm -->
+                    <label class="relative block cursor-pointer">
+                        <input type="radio" name="paket" value="30cm" class="peer sr-only"
+                            onchange="updateTotal(125000, 'Cobek 30cm + Ulekan', 1)">
+                        <div
+                            class="p-4 rounded-xl border-2 border-gray-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 transition-all product-card">
+                            <div class="flex items-center gap-3">
+                                <img src="images/product-30cm.webp" alt="Cobek 30cm" width="64" height="64"
+                                    loading="lazy" class="w-16 h-16 object-cover rounded-lg shadow">
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-sm">COBEK 30cm + Ulekan</h3>
+                                    <p class="text-xs text-earth-400">Ukuran besar, untuk usaha</p>
+                                    <p class="text-lg font-bold text-brand-600">Rp 125.000</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check text-brand-500 text-xl opacity-0 peer-checked:opacity-100"></i>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER FORM -->
+    <section id="order" class="py-10 bg-earth-50 pb-32">
+        <div class="container mx-auto px-4 max-w-md">
+            <div class="bg-white p-5 rounded-2xl shadow-lg border border-earth-100">
+                <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-truck-fast text-brand-600"></i> Data Pengiriman
+                </h3>
+
+                <!-- Messages -->
+                <div id="success-msg"
+                    class="hidden bg-green-50 border border-green-200 text-green-800 p-4 rounded-xl mb-4 fade-in">
+                    <p class="font-bold"><i class="fa-solid fa-circle-check"></i> Pesanan Berhasil!</p>
+                    <p class="text-sm">Tim kami akan menghubungi via WhatsApp.</p>
+                    <p class="text-xs mt-1">Order ID: <span id="order-id" class="font-mono">-</span></p>
+                </div>
+                <div id="error-msg"
+                    class="hidden bg-red-50 border border-red-200 text-red-800 p-4 rounded-xl mb-4 fade-in">
+                    <p class="font-bold"><i class="fa-solid fa-circle-xmark"></i> Error</p>
+                    <p class="text-sm" id="error-text">Silakan coba lagi.</p>
+                </div>
+
+                <form id="orderForm" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-earth-600 mb-1">Nama Lengkap *</label>
+                        <input type="text" name="name" id="name" required placeholder="Ahmad Suryadi"
+                            class="w-full px-4 py-3 rounded-xl border border-earth-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 bg-earth-50 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-earth-600 mb-1">No. WhatsApp *</label>
+                        <div class="flex">
+                            <span
+                                class="bg-earth-100 border border-r-0 border-earth-200 px-3 py-3 rounded-l-xl text-earth-500 text-sm">+62</span>
+                            <input type="tel" name="phone" id="phone" required placeholder="812xxxxxxxx"
+                                class="w-full px-4 py-3 rounded-r-xl border border-earth-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 bg-earth-50 text-sm">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label for="province" class="block text-xs font-bold text-earth-600 mb-1">Provinsi *</label>
+                            <select name="province" id="province" required
+                                class="w-full px-3 py-3 rounded-xl border border-earth-200 focus:border-brand-500 bg-earth-50 text-sm">
+                                <option value="">Pilih</option>
+                                <option>Jawa Barat</option>
+                                <option>DKI Jakarta</option>
+                                <option>Jawa Tengah</option>
+                                <option>Jawa Timur</option>
+                                <option>Banten</option>
+                                <option>DI Yogyakarta</option>
+                                <option>Sumatera Utara</option>
+                                <option>Sumatera Barat</option>
+                                <option>Sumatera Selatan</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-earth-600 mb-1">Kota *</label>
+                            <input type="text" name="city" id="city" required placeholder="Garut"
+                                class="w-full px-4 py-3 rounded-xl border border-earth-200 focus:border-brand-500 bg-earth-50 text-sm">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="col-span-2">
+                            <label class="block text-xs font-bold text-earth-600 mb-1">Kecamatan *</label>
+                            <input type="text" name="district" id="district" required placeholder="Tarogong Kaler"
+                                class="w-full px-4 py-3 rounded-xl border border-earth-200 focus:border-brand-500 bg-earth-50 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-earth-600 mb-1">Kode Pos *</label>
+                            <input type="text" name="postal" id="postal" required placeholder="44151" maxlength="5"
+                                class="w-full px-4 py-3 rounded-xl border border-earth-200 focus:border-brand-500 bg-earth-50 text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-earth-600 mb-1">Alamat Lengkap *</label>
+                        <textarea name="address" id="address" required rows="2"
+                            placeholder="Jl. Pembangunan No. 10, RT 01/RW 02"
+                            class="w-full px-4 py-3 rounded-xl border border-earth-200 focus:border-brand-500 bg-earth-50 text-sm"></textarea>
+                    </div>
+
+                    <!-- Summary -->
+                    <div class="bg-brand-50 p-4 rounded-xl border border-brand-100">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-earth-600">Produk:</span>
+                            <span class="font-bold" id="sum-name">Cobek 25cm + Ulekan</span>
+                        </div>
+                        <div class="flex justify-between text-sm mb-2 pb-2 border-b border-dashed border-brand-200">
+                            <span class="text-earth-600">Ongkir:</span>
+                            <span class="text-green-600 font-medium">Bayar di Tempat (COD)</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold">
+                            <span>Total:</span>
+                            <span class="text-brand-600" id="sum-price">Rp 95.000</span>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="h-name" value="Cobek 25cm + Ulekan">
+                    <input type="hidden" id="h-price" value="95000">
+                    <input type="hidden" id="h-qty" value="1">
+
+                    <button type="submit" id="submit-btn"
+                        class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg text-base transition-all btn-glow disabled:opacity-60">
+                        <span id="btn-text">PESAN SEKARANG (COD) 🚚</span>
+                        <span id="btn-loading" class="hidden items-center justify-center gap-2">
+                            <div class="loading-spinner"></div> Memproses...
+                        </span>
+                    </button>
+
+                    <p class="text-center text-xs text-earth-400">
+                        <i class="fa-solid fa-lock"></i> Data Anda aman & terjaga
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-earth-900 text-earth-400 py-6 text-center text-xs">
+        <p class="font-bold text-white mb-1">COBEK GARUT - ASLI KERAJINAN GARUT</p>
+        <p>© 2025 All Rights Reserved</p>
+    </footer>
+
+    <!-- STICKY BAR -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-earth-200 p-3 z-40 shadow-lg md:hidden">
+        <div class="flex items-center justify-between gap-3 max-w-md mx-auto">
+            <div>
+                <p class="text-[10px] text-earth-400">Mulai dari</p>
+                <p class="font-bold text-brand-600 text-lg" id="sticky-price">Rp 95.000</p>
+            </div>
+            <a href="#order" class="bg-brand-600 text-white font-bold py-3 px-6 rounded-xl flex-1 text-center">BELI
+                SEKARANG</a>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Timer
+        function startTimer(duration, el) {
+            let timer = duration;
+            setInterval(() => {
+                const h = String(Math.floor(timer / 3600)).padStart(2, '0');
+                const m = String(Math.floor((timer % 3600) / 60)).padStart(2, '0');
+                const s = String(timer % 60).padStart(2, '0');
+                el.textContent = `${h}:${m}:${s}`;
+                timer = timer <= 0 ? duration : timer - 1;
+            }, 1000);
+        }
+        startTimer(8100, document.getElementById('timer'));
+
+        // Price
+        let price = 95000, name = 'Cobek 25cm + Ulekan', qty = 1;
+        const fmt = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(n);
+
+        function updateTotal(p, n, q) {
+            price = p; name = n; qty = q;
+            document.getElementById('sum-price').textContent = fmt(p);
+            document.getElementById('sum-name').textContent = n;
+            document.getElementById('sticky-price').textContent = fmt(p);
+            document.getElementById('h-name').value = n;
+            document.getElementById('h-price').value = p;
+            document.getElementById('h-qty').value = q;
+            
+            // Update radio visual feedback
+            document.querySelectorAll('input[name="paket"]').forEach(radio => {
+                const icon = radio.closest('label').querySelector('.fa-circle-check');
+                if (icon) {
+                    icon.classList.toggle('opacity-0', !radio.checked);
+                    icon.classList.toggle('opacity-100', radio.checked);
+                }
+            });
+        }
+
+        // Form
+        const form = document.getElementById('orderForm');
+        const btn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoad = document.getElementById('btn-loading');
+        const successEl = document.getElementById('success-msg');
+        const errorEl = document.getElementById('error-msg');
+
+        function setLoading(v) {
+            btn.disabled = v;
+            btnText.classList.toggle('hidden', v);
+            btnLoad.classList.toggle('hidden', !v);
+            btnLoad.classList.toggle('flex', v);
+        }
+
+        function hideMsg() { successEl.classList.add('hidden'); errorEl.classList.add('hidden'); }
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+            hideMsg();
+            setLoading(true);
+
+            // Demo mode - simulate processing
+            await new Promise(r => setTimeout(r, 1500));
+            const orderId = 'CBK-' + Date.now().toString().slice(-6);
+
+            setLoading(false);
+            document.getElementById('order-id').textContent = orderId;
+            successEl.classList.remove('hidden');
+            form.reset();
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        form.querySelectorAll('input,textarea,select').forEach(el => el.addEventListener('focus', hideMsg));
+    </script>
+</body>
+
+</html>
