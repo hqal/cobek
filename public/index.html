@@ -23,6 +23,23 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1361850507693201');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1361850507693201&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
     <script>
         tailwind.config = {
             theme: {
@@ -493,6 +510,16 @@
                     icon.classList.toggle('opacity-100', radio.checked);
                 }
             });
+
+            // Meta Pixel: ViewContent event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', {
+                    content_name: n,
+                    content_type: 'product',
+                    value: p,
+                    currency: 'IDR'
+                });
+            }
         }
 
         // Form
@@ -512,14 +539,106 @@
 
         function hideMsg() { successEl.classList.add('hidden'); errorEl.classList.add('hidden'); }
 
+        // Helper: Get Meta cookies for better matching
+        function getMetaCookies() {
+            const cookies = document.cookie.split(';').reduce((acc, c) => {
+                const [key, val] = c.trim().split('=');
+                acc[key] = val;
+                return acc;
+            }, {});
+            return {
+                fbc: cookies._fbc || null,
+                fbp: cookies._fbp || null
+            };
+        }
+
+        // Helper: Generate unique event ID for deduplication
+        function generateEventId() {
+            return 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Helper: Send event to server-side CAPI
+        async function sendToCAPI(eventName, eventData, userData, eventId) {
+            try {
+                const metaCookies = getMetaCookies();
+                await fetch('/api/meta-capi', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        event_name: eventName,
+                        event_data: eventData,
+                        user_data: {
+                            ...userData,
+                            ...metaCookies
+                        },
+                        event_id: eventId,
+                        event_source_url: window.location.href
+                    })
+                });
+            } catch (err) {
+                console.error('CAPI Error:', err);
+            }
+        }
+
         form.addEventListener('submit', async e => {
             e.preventDefault();
             hideMsg();
             setLoading(true);
 
+            // Get form data
+            const formData = new FormData(form);
+            const customerName = formData.get('name');
+            const customerPhone = formData.get('phone');
+            const customerCity = formData.get('city');
+            const customerProvince = formData.get('province');
+            const customerPostal = formData.get('postal');
+
+            // Generate unique event ID for deduplication
+            const eventId = generateEventId();
+            const orderId = 'CBK-' + Date.now().toString().slice(-6);
+
+            // Event data for tracking
+            const eventData = {
+                content_name: name,
+                content_type: 'product',
+                value: price,
+                currency: 'IDR',
+                order_id: orderId,
+                contents: [{
+                    id: document.querySelector('input[name="paket"]:checked')?.value || '25cm',
+                    quantity: qty,
+                    item_price: price
+                }]
+            };
+
+            // User data for matching
+            const userData = {
+                phone: customerPhone,
+                first_name: customerName.split(' ')[0],
+                last_name: customerName.split(' ').slice(1).join(' ') || customerName,
+                city: customerCity,
+                state: customerProvince,
+                zip: customerPostal,
+                country: 'ID',
+                external_id: orderId
+            };
+
+            // Meta Pixel: Purchase event (client-side)
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    content_name: name,
+                    content_type: 'product',
+                    value: price,
+                    currency: 'IDR',
+                    order_id: orderId
+                }, { eventID: eventId });
+            }
+
+            // Send to CAPI (server-side) for better tracking
+            sendToCAPI('Purchase', eventData, userData, eventId);
+
             // Demo mode - simulate processing
             await new Promise(r => setTimeout(r, 1500));
-            const orderId = 'CBK-' + Date.now().toString().slice(-6);
 
             setLoading(false);
             document.getElementById('order-id').textContent = orderId;
