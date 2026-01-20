@@ -28,7 +28,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -385,17 +385,45 @@
                             <label for="province" class="block text-xs font-bold text-earth-600 mb-1">Provinsi *</label>
                             <select name="province" id="province" required
                                 class="w-full px-3 py-3 rounded-xl border border-earth-200 focus:border-brand-500 bg-earth-50 text-sm">
-                                <option value="">Pilih</option>
-                                <option>Jawa Barat</option>
+                                <option value="">Pilih Provinsi</option>
+                                <option>Aceh</option>
+                                <option>Bali</option>
+                                <option>Banten</option>
+                                <option>Bengkulu</option>
+                                <option>DI Yogyakarta</option>
                                 <option>DKI Jakarta</option>
+                                <option>Gorontalo</option>
+                                <option>Jambi</option>
+                                <option>Jawa Barat</option>
                                 <option>Jawa Tengah</option>
                                 <option>Jawa Timur</option>
-                                <option>Banten</option>
-                                <option>DI Yogyakarta</option>
-                                <option>Sumatera Utara</option>
+                                <option>Kalimantan Barat</option>
+                                <option>Kalimantan Selatan</option>
+                                <option>Kalimantan Tengah</option>
+                                <option>Kalimantan Timur</option>
+                                <option>Kalimantan Utara</option>
+                                <option>Kepulauan Bangka Belitung</option>
+                                <option>Kepulauan Riau</option>
+                                <option>Lampung</option>
+                                <option>Maluku</option>
+                                <option>Maluku Utara</option>
+                                <option>Nusa Tenggara Barat</option>
+                                <option>Nusa Tenggara Timur</option>
+                                <option>Papua</option>
+                                <option>Papua Barat</option>
+                                <option>Papua Barat Daya</option>
+                                <option>Papua Pegunungan</option>
+                                <option>Papua Selatan</option>
+                                <option>Papua Tengah</option>
+                                <option>Riau</option>
+                                <option>Sulawesi Barat</option>
+                                <option>Sulawesi Selatan</option>
+                                <option>Sulawesi Tengah</option>
+                                <option>Sulawesi Tenggara</option>
+                                <option>Sulawesi Utara</option>
                                 <option>Sumatera Barat</option>
                                 <option>Sumatera Selatan</option>
-                                <option>Lainnya</option>
+                                <option>Sumatera Utara</option>
                             </select>
                         </div>
                         <div>
