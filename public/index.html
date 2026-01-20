@@ -25,19 +25,22 @@
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1361850507693201');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1361850507693201');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1361850507693201&ev=PageView&noscript=1"/></noscript>
+            src="https://www.facebook.com/tr?id=1361850507693201&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
     <script>
@@ -637,14 +640,41 @@
             // Send to CAPI (server-side) for better tracking
             sendToCAPI('Purchase', eventData, userData, eventId);
 
-            // Demo mode - simulate processing
-            await new Promise(r => setTimeout(r, 1500));
+            // Get additional form data for WhatsApp
+            const customerDistrict = formData.get('district');
+            const customerAddress = formData.get('address');
+
+            // Build WhatsApp message
+            const NOMOR_WA = '6282316054227';
+            let pesan = '=========================\n';
+            pesan += '*PESANAN BARU - COBEK GARUT*\n';
+            pesan += '=========================\n\n';
+            pesan += '>> *Order ID:* ' + orderId + '\n';
+            pesan += '>> *Produk:* ' + name + '\n';
+            pesan += '>> *Total:* ' + fmt(price) + '\n\n';
+            pesan += '--- *Data Pemesan* ---\n';
+            pesan += 'Nama: ' + customerName + '\n';
+            pesan += 'No. HP: +62' + customerPhone + '\n\n';
+            pesan += '--- *Alamat Pengiriman* ---\n';
+            pesan += customerAddress + '\n';
+            pesan += customerDistrict + ', ' + customerCity + ' ' + customerPostal + '\n';
+            pesan += customerProvince + '\n\n';
+            pesan += '_Pesanan via Landing Page_';
+
+            // Open WhatsApp
+            const waUrl = 'https://wa.me/' + NOMOR_WA + '?text=' + encodeURIComponent(pesan);
 
             setLoading(false);
             document.getElementById('order-id').textContent = orderId;
             successEl.classList.remove('hidden');
-            form.reset();
             successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Redirect to WhatsApp after showing success
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+            }, 500);
+
+            form.reset();
         });
 
         form.querySelectorAll('input,textarea,select').forEach(el => el.addEventListener('focus', hideMsg));
